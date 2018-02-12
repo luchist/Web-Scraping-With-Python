@@ -1,7 +1,7 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
-
+#HTTP error handling
 try:
  html = urlopen("http://www.pythonscraping.com/pages/page1.html")
 except HTTPError as e:
@@ -10,5 +10,5 @@ except HTTPError as e:
 else:
  #program continues. Note: If you return or break in the
  #exception catch, you do not need to use the "else" statement
- bsObj = BeautifulSoup(html.read())
+ bsObj = BeautifulSoup(html.read(),"html.parser")
  print(bsObj.div)
